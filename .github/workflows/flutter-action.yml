@@ -4,12 +4,8 @@ on: [push]
 
 jobs:
   build:
-
+    name: Flutter action build
     runs-on: ubuntu-latest
-
-    container:
-      image:  google/dart:latest
-
     steps:
     - name: Flutter action
     - uses: actions/checkout@v1
