@@ -7,7 +7,6 @@ jobs:
     name: Flutter action build
     runs-on: ubuntu-latest
     steps:
-    - name: Flutter action
     - uses: actions/checkout@v1
     - uses: actions/setup-java@v1
       with:
