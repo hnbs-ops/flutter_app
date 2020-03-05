@@ -27,10 +27,11 @@ jobs:
           repo-token: '${{ secrets.GITHUB_TOKEN }}'
           base_version: "v0.0.0"
           #        tag_name: "how to use return vars"
+      - run: ls -l
       - name: Push iOS to Releases
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "build/app/outputs/apk/debug/*"
+          artifacts: "*"
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{steps.step_tag.outputs.tag_name}}
 #        tag: "v0.0.1" New tag
