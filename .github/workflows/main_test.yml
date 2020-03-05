@@ -16,7 +16,7 @@ jobs:
     - run: flutter pub get
 #    - run: flutter clean
 #    - run: flutter pub cache repair
-    - run flutter doctor -v
+    - run: flutter doctor -v
     - run: flutter test
     - run: flutter build apk --debug --split-per-abi
     - name: Push APK to Releases
