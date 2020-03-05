@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'+ " " + WordPair.random().asPascalCase,
+      home: MyHomePage(title: 'B-Synergy Github Demo'+ " " + WordPair.random().asPascalCase,
       ),
       /*
       home: Scaffold(
