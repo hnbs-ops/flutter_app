@@ -37,6 +37,11 @@ jobs:
         with:
           args: pub get
 
+      - name: check verbose
+        uses: steebchen/flutter@v1.0.0
+        with:
+          args: run --verbose
+
       - name: clean project
         uses: steebchen/flutter@v1.0.0
         with:
