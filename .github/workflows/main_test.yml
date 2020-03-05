@@ -20,11 +20,17 @@ jobs:
     - run: flutter doctor -v
     - run: flutter test
     - run: flutter build apk --debug --split-per-abi
+    - name: Create tag
+      uses: mosfetlang/dev-tagger-action@v1
+        with:
+          tag-prefix: 'my-tag-'
+          origin: 'origin'
     - name: Push APK to Releases
       uses: ncipollo/release-action@v1
       with:
         artifacts: "build/app/outputs/apk/debug/*.apk"
         token: ${{ secrets.TOKEN }}
+        tag: $newTag
 
 # https://github.com/marketplace/actions/flutter-cli
 #on: push
