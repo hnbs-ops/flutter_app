@@ -26,6 +26,7 @@ jobs:
 #    - run: flutter pub cache repair
     - run: flutter doctor -v
     - run: flutter test
+    - run: flutter build ios --release --no-codesign
     - run: flutter build apk --debug --split-per-abi
 #    - name: Create tag
 #      uses: mosfetlang/dev-tagger-action@v1
@@ -40,44 +41,3 @@ jobs:
         tag: ${{steps.step_tag.outputs.tag_name}}
 #        tag: "v0.0.1" New tag
 
-
-
-# https://github.com/marketplace/actions/flutter-cli
-#on: push
-#name: build and test app
-#jobs:
-#  build:
-#    name: install dependencies
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: actions/checkout@v1
-#
-#      - name: install dependencies
-#        uses: steebchen/flutter@v1.0.0
-#        with:
-#          args: pub get
-#
-#      - name: check verbose
-#        uses: steebchen/flutter@v1.0.0
-#        with:
-#          args: run --verbose
-#
-#      - name: clean project
-#        uses: steebchen/flutter@v1.0.0
-#        with:
-#          args: clean
-#
-#      - name: repair cache
-#        uses: steebchen/flutter@v1.0.0
-#        with:
-#          args: pub cache repair
-#
-#      - name: run tests
-#        uses: steebchen/flutter@v1.0.0
-#        with:
-#          args: test
-#
-#      - name: build apk
-#        uses: steebchen/flutter@v1.0.0
-#        with:
-#          args: build apk --release
