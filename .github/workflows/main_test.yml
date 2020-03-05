@@ -29,7 +29,7 @@ jobs:
       uses: ncipollo/release-action@v1
       with:
         artifacts: "build/app/outputs/apk/debug/*.apk"
-        token: ${{ secrets.TOKEN }}
+        token: ${{ secrets.GITHUB_TOKEN }}
 #        tag: $newTag
         tag: "v0.0"
 # https://github.com/marketplace/actions/flutter-cli
