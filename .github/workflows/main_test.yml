@@ -31,7 +31,7 @@ jobs:
         artifacts: "build/app/outputs/apk/debug/*.apk"
         token: ${{ secrets.GITHUB_TOKEN }}
 #        tag: $newTag
-        tag: "v0.0"
+        tag: "v0.0.1"
 # https://github.com/marketplace/actions/flutter-cli
 #on: push
 #name: build and test app
