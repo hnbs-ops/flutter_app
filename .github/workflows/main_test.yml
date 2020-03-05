@@ -14,6 +14,12 @@ jobs:
     - uses: subosito/flutter-action@v1
       with:
         flutter-version: '1.12.13+hotfix.8'
+    - name: Apply a tag to the new commit
+      uses: mcpierce/github-commit-timestamp-tagger@master
+      with:
+        repo-token: '${{ secrets.GITHUB_TOKEN }}'
+        base_version: "v0.0.0"
+        tag_name: "bla"
     - run: flutter pub get
 #    - run: flutter clean
 #    - run: flutter pub cache repair
@@ -30,8 +36,11 @@ jobs:
       with:
         artifacts: "build/app/outputs/apk/debug/*.apk"
         token: ${{ secrets.GITHUB_TOKEN }}
-#        tag: $newTag
-        tag: "v0.0.1"
+        tag: ${{tag_name}}
+#        tag: "v0.0.1" New tag
+
+
+
 # https://github.com/marketplace/actions/flutter-cli
 #on: push
 #name: build and test app
