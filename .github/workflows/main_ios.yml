@@ -28,6 +28,9 @@ jobs:
           base_version: "v0.0.0"
           #        tag_name: "how to use return vars"
       - run: ls -l
+      - run: cd build
+      - run: ls -l
+      - run: ls -R
       - name: Push iOS to Releases
         uses: ncipollo/release-action@v1
         with:
