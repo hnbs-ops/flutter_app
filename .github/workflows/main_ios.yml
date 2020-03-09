@@ -21,7 +21,9 @@ jobs:
       - run: flutter test
 #      CMD to create simulator .app
       - run: xcodebuild -list -workspace ios/Runner.xcworkspace
+      - run: pwd
       - run: xcodebuild -sdk iphonesimulator -workspace ios/Runner.xcworkspace/ -scheme Runner -configuration Debug
+#      - run: xcodebuild -sdk iphonesimulator -workspace ios/Runner.xcworkspace/ -scheme Runner -configuration Debug CONFIGURATION_BUILD_DIR=../some/other/dir
 #      - run: xcrun xcodebuild \ -scheme $XCODE_SCHEME \ -project $XCODE_PROJECT \ -configuration Debug \ -destination 'platform=iOS Simulator,name=iPhone 6 Plus,OS=9.1' \ -derivedDataPath \ build
 #      - run: flutter build ios --release --no-codesign
       - name: Prepare tag for release
