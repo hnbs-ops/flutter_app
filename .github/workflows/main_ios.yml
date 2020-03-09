@@ -28,13 +28,16 @@ jobs:
           base_version: "v0.0.0"
           #        tag_name: "how to use return vars"
       - run: ls -l
-      - run: cd build
-      - run: ls -l
+      #- run: cd build
+      #- run: ls -l
       - run: ls -R
+      - run: sudo apt install zip unzip
+      - run: zip -r output_file.zip build
       - name: Push iOS to Releases
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "/Users/runner/runners/2.165.2/work/flutter_app/flutter_app/build/ios/iphoneos/Runner.app"
+          #artifacts: "/Users/runner/runners/2.165.2/work/flutter_app/flutter_app/build/ios/iphoneos/Runner.app"
+          artifacts: "output_file.zip"
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{steps.step_tag.outputs.tag_name}}
 #        tag: "v0.0.1" New tag
