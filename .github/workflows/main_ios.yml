@@ -31,7 +31,8 @@ jobs:
       #- run: cd build
       #- run: ls -l
       - run: ls -R
-      - run: sudo apt install zip unzip
+#      - run: sudo apt install zip unzip
+#      Not working
       - run: zip -r output_file.zip build
       - name: Push iOS to Releases
         uses: ncipollo/release-action@v1
