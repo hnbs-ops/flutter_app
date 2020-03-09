@@ -19,7 +19,9 @@ jobs:
       #    - run: flutter pub cache repair
       - run: flutter doctor -v
       - run: flutter test
+      - run: xcodebuild -list -workspace ios/Runner.xcworkspace
       - run: xcrun xcodebuild \ -scheme $XCODE_SCHEME \ -project $XCODE_PROJECT \ -configuration Debug \ -destination 'platform=iOS Simulator,name=iPhone 6 Plus,OS=9.1' \ -derivedDataPath \ build
+#      - run: xcrun xcodebuild \ -scheme $XCODE_SCHEME \ -project $XCODE_PROJECT \ -configuration Debug \ -destination 'platform=iOS Simulator,name=iPhone 6 Plus,OS=9.1' \ -derivedDataPath \ build
       - run: flutter build ios --release --no-codesign
       - name: Prepare tag for release
         id: step_tag
