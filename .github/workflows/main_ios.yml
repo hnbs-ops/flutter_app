@@ -30,7 +30,7 @@ jobs:
 #      - run: flutter build ios --release --no-codesign
       - name: Prepare tag for release
         env:
-          BRANCHE_NAME: ${GITHUB_REF##*/}
+          BRANCHE_NAME: ${{GITHUB_REF##*/}}
         id: step_tag
         uses: mcpierce/github-commit-timestamp-tagger@master
         with:
