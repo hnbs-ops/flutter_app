@@ -33,7 +33,7 @@ jobs:
         uses: mcpierce/github-commit-timestamp-tagger@master
         with:
           repo-token: '${{ secrets.GITHUB_TOKEN }}'
-          base_version: "v0.0.0"+${{branch_name}}
+          base_version: v0.0.0${{branch_name}}
           #        tag_name: "how to use return vars"
       - run: ls -l
       #- run: cd build
