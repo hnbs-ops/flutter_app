@@ -6,8 +6,6 @@ jobs:
     name: Build iOS
     runs-on: macOS-latest
     steps:
-      - env:
-          BRANCHE_NAME: ${GITHUB_REF##*/}
       - run: echo ${{github.ref}}
       - run: echo ${GITHUB_REF##*/}
       - uses: actions/checkout@v1
@@ -31,11 +29,13 @@ jobs:
 #      - run: xcrun xcodebuild \ -scheme $XCODE_SCHEME \ -project $XCODE_PROJECT \ -configuration Debug \ -destination 'platform=iOS Simulator,name=iPhone 6 Plus,OS=9.1' \ -derivedDataPath \ build
 #      - run: flutter build ios --release --no-codesign
       - name: Prepare tag for release
+        - env:
+          BRANCHE_NAME: ${GITHUB_REF##*/}
         id: step_tag
         uses: mcpierce/github-commit-timestamp-tagger@master
         with:
           repo-token: '${{ secrets.GITHUB_TOKEN }}'
-          base_version: v0.0.0${{$BRANCHE_NAME}}
+          base_version: v0.0.0${$BRANCHE_NAME}
           #        tag_name: "how to use return vars"
       - run: ls -l
       #- run: cd build
