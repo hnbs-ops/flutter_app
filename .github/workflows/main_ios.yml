@@ -6,7 +6,7 @@ jobs:
     name: Build iOS
     runs-on: macOS-latest
     steps:
-      - run: echo "::set-env name=TAG_BRANCHE_NAME::v0.0.0_ios_${GITHUB_REF##*/}"
+      - run: echo "::set-env name=TAG_BRANCHE_NAME::v0.0.0_${GITHUB_REF##*/}_ios"
       - run: echo $TAG_BRANCHE_NAME
       - run: echo ${{github.ref}} #Test
       - run: echo ${GITHUB_REF##*/}  #Test

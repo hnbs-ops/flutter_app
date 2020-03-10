@@ -6,7 +6,7 @@ jobs:
     name: Build APK
     runs-on: ubuntu-latest
     steps:
-    - run: echo "::set-env name=TAG_BRANCHE_NAME::v0.0.0_android_${GITHUB_REF##*/}"
+    - run: echo "::set-env name=TAG_BRANCHE_NAME::v0.0.0_${GITHUB_REF##*/}_android"
     - run: echo $TAG_BRANCHE_NAME
     - uses: actions/checkout@v1
     - uses: actions/setup-java@v1
