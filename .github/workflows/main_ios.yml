@@ -39,14 +39,13 @@ jobs:
 #      - run: flutter build ios --release --no-codesign
       - name: Prepare tag for release
         env:
-#          BRANCHE_NAME: ${GITHUB_REF##*/}
-          BRANCHE_NAME: master
+#          BRANCHE_NAMEe: ${GITHUB_REF##*/}
+          BRANCHE_NAMEe: master
         id: step_tag
         uses: mcpierce/github-commit-timestamp-tagger@master
         with:
           repo-token: '${{ secrets.GITHUB_TOKEN }}'
-#          base_version: v0.0.0${{env.BRANCHE_NAME}}
-          base_version: v0.0.0$BRANCHE_NAME
+          base_version: ${{env.BRANCHE_NAMEe}}
           #        tag_name: "how to use return vars"
       - run: ls -l
       #- run: cd build
