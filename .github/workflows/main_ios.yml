@@ -15,8 +15,7 @@ jobs:
         uses: mcpierce/github-commit-timestamp-tagger@master
         with:
           repo-token: '${{ secrets.GITHUB_TOKEN }}'
-          #          base_version: v0.0.0${{env.BRANCHE_NAME}}
-          base_version: $BRANCHE_NAME
+          base_version: ${{env.BRANCHE_NAME}}
           #        tag_name: "how to use return vars"
       - uses: actions/checkout@v1
       - uses: actions/setup-java@v1
