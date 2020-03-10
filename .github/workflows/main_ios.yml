@@ -6,7 +6,8 @@ jobs:
     name: Build iOS
     runs-on: macOS-latest
     steps:
-      - run: echo ${{github.ref}} branche name ${GITHUB_REF##*/}
+      - run: echo ${{github.ref}}
+      - run: echo ${GITHUB_REF##*/}
       - uses: actions/checkout@v1
       - uses: actions/setup-java@v1
         with:
@@ -32,7 +33,7 @@ jobs:
         uses: mcpierce/github-commit-timestamp-tagger@master
         with:
           repo-token: '${{ secrets.GITHUB_TOKEN }}'
-          base_version: v0.0.0${GITHUB_REF##*/}
+          base_version: "v0.0.0" + ${GITHUB_REF##*/}
           #        tag_name: "how to use return vars"
       - run: ls -l
       #- run: cd build
