@@ -28,7 +28,7 @@ jobs:
       with:
         repo-token: '${{ secrets.GITHUB_TOKEN }}'
 #        base_version: "v0.0.0"
-         base_version: ${{env.TAG_BRANCHE_NAME}}
+        base_version: ${{env.TAG_BRANCHE_NAME}}
       #        tag_name: "how to use return vars"
     - name: Push APK to Releases
       uses: ncipollo/release-action@v1
