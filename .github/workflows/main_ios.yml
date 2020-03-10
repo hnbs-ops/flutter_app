@@ -29,7 +29,7 @@ jobs:
 #      - run: xcrun xcodebuild \ -scheme $XCODE_SCHEME \ -project $XCODE_PROJECT \ -configuration Debug \ -destination 'platform=iOS Simulator,name=iPhone 6 Plus,OS=9.1' \ -derivedDataPath \ build
 #      - run: flutter build ios --release --no-codesign
       - name: Prepare tag for release
-        - env:
+        env:
           BRANCHE_NAME: ${GITHUB_REF##*/}
         id: step_tag
         uses: mcpierce/github-commit-timestamp-tagger@master
