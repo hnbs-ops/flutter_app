@@ -29,11 +29,7 @@ jobs:
           xcodebuild -list -workspace ios/Runner.xcworkspace
           pwd
           xcodebuild -sdk iphonesimulator -workspace ios/Runner.xcworkspace/ -scheme Runner -configuration Debug CONFIGURATION_BUILD_DIR=$PWD/build_ios_simulator
-          zip -r build/build_ios_simulator.ipa build_ios_simulator/Runner.app
-#            - run: xcodebuild -sdk iphonesimulator -workspace ios/Runner.xcworkspace/ -scheme Runner -configuration Debug
-#      Test above
-  #    - run: xcodebuild -list -workspace ios/Runner.xcworkspace
-  #    - run: pwd
+          zip -r build/build_ios_simulator.zip build_ios_simulator/Runner.app
 #      Test code - START
 #      - run: xcodebuild -sdk iphonesimulator -workspace ios/Runner.xcworkspace/ -scheme Runner -configuration Debug
 #      Test code - END
