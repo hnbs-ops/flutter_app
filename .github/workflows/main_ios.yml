@@ -38,8 +38,15 @@ jobs:
 #      Test code - END
   #    - run: xcodebuild -sdk iphonesimulator -workspace ios/Runner.xcworkspace/ -scheme Runner -configuration Debug CONFIGURATION_BUILD_DIR=$PWD/build
 #      - run: xcrun xcodebuild \ -scheme $XCODE_SCHEME \ -project $XCODE_PROJECT \ -configuration Debug \ -destination 'platform=iOS Simulator,name=iPhone 6 Plus,OS=9.1' \ -derivedDataPath \ build
-      - name: Build release app
-        run: flutter build ios --release --no-codesign
+      - name: Select Xcode
+        run: sudo xcode-select -switch /Applications/Xcode_11.3.app && /usr/bin/xcodebuild -version
+      - name: Build archive
+        run: xcodebuild -sdk iphoneos -project ios/Runner.xcodeproj -configuration Release -scheme Runner -derivedDataPath DerivedData -archivePath DerivedData/Archive/CocoaHeadsNL archive
+      - name: Export Archive
+        run: xcodebuild -exportArchive -archivePath DerivedData/Archive/CocoaHeadsNL.xcarchive -exportOptionsPlist ios/provisioning/App-Store.plist -exportPath build/DerivedData/ipa
+
+#      - name: Build release app
+#        run: flutter build ios --release --no-codesign
       - name: Prepare tag for release
         env:
           TAG_BRANCHE_NAMEe: master
