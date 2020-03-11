@@ -27,8 +27,6 @@ jobs:
   #      CMD to create simulator .app
         run: |
           xcodebuild -list -workspace ios/Runner.xcworkspace
-          pwd
-#      - run: xcodebuild -sdk iphonesimulator -workspace ios/Runner.xcworkspace/ -scheme Runner -configuration Debug
           xcodebuild -sdk iphonesimulator -workspace ios/Runner.xcworkspace/ -scheme Runner -configuration Debug CONFIGURATION_BUILD_DIR=$PWD/build
 #      Test above
       - run: xcodebuild -list -workspace ios/Runner.xcworkspace
