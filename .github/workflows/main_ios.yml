@@ -19,8 +19,8 @@ jobs:
         with:
           flutter-version: '1.12.13+hotfix.8'
       - run: flutter pub get
-      #    - run: flutter clean
-      #    - run: flutter pub cache repair
+  #    - run: flutter clean
+  #    - run: flutter pub cache repair
       - run: flutter doctor -v
       - run: flutter test
       - name: Build simulator app
@@ -29,7 +29,10 @@ jobs:
           xcodebuild -list -workspace ios/Runner.xcworkspace
           pwd
           xcodebuild -sdk iphonesimulator -workspace ios/Runner.xcworkspace/ -scheme Runner -configuration Debug CONFIGURATION_BUILD_DIR=$PWD/build_ios_simulator
-          zip -r build/build_ios_simulator.zip build_ios_simulator/Runner.app
+          cd build_ios_simulator
+          zip -r ../build/build_ios_simulator.zip Runner.app
+          cd ../
+#          zip -r build/build_ios_simulator.zip build_ios_simulator/Runner.app
 #      Test code - START
 #      - run: xcodebuild -sdk iphonesimulator -workspace ios/Runner.xcworkspace/ -scheme Runner -configuration Debug
 #      Test code - END
@@ -47,11 +50,7 @@ jobs:
           base_version: ${{env.TAG_BRANCHE_NAME}}
           #        tag_name: "how to use return vars"
       - run: ls -l
-      #- run: cd build
-      #- run: ls -l
       - run: ls -R
-#      - run: sudo apt install zip unzip
-#      Not working
       - run: zip -r output_file.zip build
       - name: Push iOS to Releases
         uses: ncipollo/release-action@v1
