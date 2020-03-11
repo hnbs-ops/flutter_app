@@ -27,14 +27,20 @@ jobs:
   #      CMD to create simulator .app
         run: |
           xcodebuild -list -workspace ios/Runner.xcworkspace
-          xcodebuild -sdk iphonesimulator -workspace ios/Runner.xcworkspace/ -scheme Runner -configuration Debug CONFIGURATION_BUILD_DIR=$PWD/build
+          pwd
+          xcodebuild -sdk iphonesimulator -workspace ios/Runner.xcworkspace/ -scheme Runner -configuration Debug CONFIGURATION_BUILD_DIR=$PWD/build_ios_simulator
+          zip -r build/build_ios_simulator.ipa build_ios_simulator/Runner.app
+#            - run: xcodebuild -sdk iphonesimulator -workspace ios/Runner.xcworkspace/ -scheme Runner -configuration Debug
 #      Test above
-      - run: xcodebuild -list -workspace ios/Runner.xcworkspace
-      - run: pwd
+  #    - run: xcodebuild -list -workspace ios/Runner.xcworkspace
+  #    - run: pwd
+#      Test code - START
 #      - run: xcodebuild -sdk iphonesimulator -workspace ios/Runner.xcworkspace/ -scheme Runner -configuration Debug
-      - run: xcodebuild -sdk iphonesimulator -workspace ios/Runner.xcworkspace/ -scheme Runner -configuration Debug CONFIGURATION_BUILD_DIR=$PWD/build
+#      Test code - END
+  #    - run: xcodebuild -sdk iphonesimulator -workspace ios/Runner.xcworkspace/ -scheme Runner -configuration Debug CONFIGURATION_BUILD_DIR=$PWD/build
 #      - run: xcrun xcodebuild \ -scheme $XCODE_SCHEME \ -project $XCODE_PROJECT \ -configuration Debug \ -destination 'platform=iOS Simulator,name=iPhone 6 Plus,OS=9.1' \ -derivedDataPath \ build
-#      - run: flutter build ios --release --no-codesign
+      - name: Build release app
+        run: flutter build ios --release --no-codesign
       - name: Prepare tag for release
         env:
           TAG_BRANCHE_NAMEe: master
